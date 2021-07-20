@@ -1,0 +1,39 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main_G4_1197_최소스패닝트리_Kruskal {
+	
+	static int parent[], V, E;
+	
+	public class Edge implements Comparable<Edge>{
+		
+		int start,from,weights;
+
+		@Override
+		public int compareTo(Edge o) {
+			// 가중치 기준으로 오름차순 정렬
+			return Integer.compare(this.weights, o.weights);
+		}
+		
+	}
+	
+	public static void make() {
+		for (int i = 0; i < V; i++) {
+			parent[i] = i;
+		}
+	}
+	
+	public static void main(String[] args)throws Exception {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(in.readLine());
+		
+		V = Integer.parseInt(st.nextToken());
+		E = Integer.parseInt(st.nextToken());
+		
+		parent = new int[V];
+		make();
+		
+	}
+
+}
